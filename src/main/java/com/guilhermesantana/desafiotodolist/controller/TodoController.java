@@ -2,6 +2,7 @@ package com.guilhermesantana.desafiotodolist.controller;
 
 import com.guilhermesantana.desafiotodolist.entity.Todo;
 import com.guilhermesantana.desafiotodolist.service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class TodoController {
         this.todoService = todoService;
     }
     @PostMapping
-    ResponseEntity<List<Todo>> create(@Validated @RequestBody Todo todo){
+    ResponseEntity<List<Todo>> create(@Valid  @RequestBody Todo todo){
         return ResponseEntity.status(HttpStatus.CREATED).body(todoService.create(todo));
     }
 
